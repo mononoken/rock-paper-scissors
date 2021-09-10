@@ -1,0 +1,1 @@
+This is a project for The Odin Project's Foundations course. In this project, we will create a working game of rock, paper, scissors using JavaScript.
