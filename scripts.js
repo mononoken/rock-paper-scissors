@@ -68,22 +68,18 @@ let computerSelection = computerPlay();
 function playRound(playerSelection, computerSelection) {
     let result;
     if ( playerSelection === computerSelection ) {
-        result = 'Draw';
+        result = 'Draw.';
     } else if ( playerSelection === rock && computerSelection === scissors ) {
-        result = `${player} wins.`;
+        result = `${player} wins. ${playerSelection} beats ${computerSelection}.`;
     } else if ( playerSelection === paper && computerSelection === rock ) {
-        result = `${player} wins.`;
+        result = `${player} wins. ${playerSelection} beats ${computerSelection}.`;
     } else if ( playerSelection === scissors && computerSelection === paper ) {
-        result = `${player} wins.`;
+        result = `${player} wins. ${playerSelection} beats ${computerSelection}.`;
     } else {
-        result = `${computer} wins.`;
+        result = `${computer} wins. ${computerSelection} beats ${playerSelection}.`;
     }
     return result;
 }
 
-// Display selection of player and selection of computer.
-console.log(`Player picks ${playerSelection}.`)
-console.log(`Computer picks ${computerSelection}.`)
-
-// Display who won the round.
+// Display the results of the round.
 console.log(playRound(playerSelection, computerSelection));
