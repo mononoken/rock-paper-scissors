@@ -64,22 +64,38 @@ function computerPlay() {
 // Create variable for computer selection.
 let computerSelection = computerPlay();
 
-// Play one round of the game.
+// Create variables representing player and computer scores.
+let playerScore = 0;
+let computerScore = 0;
+
+// Play one round of the game. Increment
 function playRound(playerSelection, computerSelection) {
     let result;
+    // Check for winner based on if conditions and report the winner and increment winner score.
     if ( playerSelection === computerSelection ) {
         result = 'Draw.';
+        ++playerScore;
     } else if ( playerSelection === rock && computerSelection === scissors ) {
         result = `${player} wins. ${playerSelection} beats ${computerSelection}.`;
+        ++playerScore;
     } else if ( playerSelection === paper && computerSelection === rock ) {
         result = `${player} wins. ${playerSelection} beats ${computerSelection}.`;
     } else if ( playerSelection === scissors && computerSelection === paper ) {
         result = `${player} wins. ${playerSelection} beats ${computerSelection}.`;
+        ++playerScore;
     } else {
         result = `${computer} wins. ${computerSelection} beats ${playerSelection}.`;
+        ++computerScore;
     }
     return result;
 }
 
 // Display the results of the round.
 console.log(playRound(playerSelection, computerSelection));
+
+// Game setup to play 5 rounds.
+function game() {
+    while ( playerScore !== 5 & computerScore !== 5 ) {
+        playRound(playerSelection, computerSelection);
+    }
+}
