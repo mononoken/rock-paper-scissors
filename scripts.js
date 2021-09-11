@@ -5,33 +5,34 @@
 const gameIntro = `This is a game of rock, paper, scissors.`;
 alert(gameIntro);
 
-// Create variables to represent choices: Rock, Paper, or Scissors
+// Create variables to represent selections: Rock, Paper, or Scissors
 const rock = 'Rock';
 const paper = 'Paper';
 const scissors = 'Scissors';
 
-// Get player choice
-let playerChoice = prompt("Pick 'Rock', 'Paper', or 'Scissors': ");
+// Get player selection
+let playerSelection = prompt("Pick 'Rock', 'Paper', or 'Scissors': ");
 
-// Convert player choice to case format to check choice criteria
-function convertChoice(choice) {
-    convertedChoice = choice.slice(0,1).toUpperCase() + choice.slice(1,).toLowerCase();
-    return convertedChoice;
+// Convert player selection to case format to check selection criteria
+function convertSelection(selection) {
+    convertedSelection = selection.slice(0,1).toUpperCase() + selection.slice(1,).toLowerCase();
+    return convertedSelection;
 }
 
-playerChoice = convertChoice(playerChoice);
+playerSelection = convertSelection(playerSelection);
 
-// Check player choice matches one of the three choices
-function checkChoice(choice) {
-    while ( choice !== rock && choice !== paper && choice !== scissors ) {
-        // Request player choice again until player choice matches criteria
-        choice = prompt("Choice not recognized. Pick 'Rock', 'Paper', or 'Scissors': ");
-        choice = convertChoice(choice);
+// Check player selection matches one of the three selections
+function checkSelection(selection) {
+    while ( selection !== rock && selection !== paper && selection !== scissors ) {
+        // Request player selection again until player selection matches criteria
+        selection = prompt("Selection not recognized. Pick 'Rock', 'Paper', or 'Scissors': ");
+        selection = convertSelection(selection);
     }
-    return choice;
+    return selection;
 }
 
-playerChoice = checkChoice(playerChoice);
+// Create variable for player selection
+playerSelection = checkSelection(playerSelection);
 
 // Get a random number from the Math functions between 0 and 3.
 function getRandomNumber() {
@@ -39,28 +40,30 @@ function getRandomNumber() {
     return randomNumber;
 }
 
-// create function that picks computer choice randomly
+// create function that picks computer selection randomly
 function computerPlay() {
-    let randomChoice;
+    let randomSelection;
     randomNumber = getRandomNumber();
     switch (randomNumber) {
         case 0:
-            randomChoice = rock;
+            randomSelection = rock;
             break;
         case 1:
-            randomChoice = paper;
+            randomSelection = paper;
             break;
         case 2:
-            randomChoice = scissors;
+            randomSelection = scissors;
     }
-    return randomChoice;
+    return randomSelection;
 }
 
-// create variable for computer choice
-let computerChoice = computerPlay();
+// create variable for computer selection
+let computerSelection = computerPlay();
 
-console.log(`Player choice is ${playerChoice}.`)
-console.log(`Computer choice is ${computerChoice}.`)
+// Play one round of the game.
+function playRound(playerSelection, computerSelection) {
+    
+}
 
-// display choice of player and choice of computer
+// display selection of player and selection of computer
 // display who won the round
