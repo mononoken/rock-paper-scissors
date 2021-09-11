@@ -10,6 +10,10 @@ const rock = 'Rock';
 const paper = 'Paper';
 const scissors = 'Scissors';
 
+// Create variables representing the player and computer
+player = 'Player';
+computer = 'Computer';
+
 // Get player selection
 let playerSelection = prompt("Pick 'Rock', 'Paper', or 'Scissors': ");
 
@@ -62,8 +66,24 @@ let computerSelection = computerPlay();
 
 // Play one round of the game.
 function playRound(playerSelection, computerSelection) {
-    
+    let result;
+    if ( playerSelection === computerSelection ) {
+        result = 'Draw';
+    } else if ( playerSelection === rock && computerSelection === scissors ) {
+        result = `${player} wins.`;
+    } else if ( playerSelection === paper && computerSelection === rock ) {
+        result = `${player} wins.`;
+    } else if ( playerSelection === scissors && computerSelection === paper ) {
+        result = `${player} wins.`;
+    } else {
+        result = `${computer} wins.`;
+    }
+    return result;
 }
+
+console.log(`Player picks ${playerSelection}.`)
+console.log(`Computer picks ${computerSelection}.`)
+console.log(playRound(playerSelection, computerSelection));
 
 // display selection of player and selection of computer
 // display who won the round
