@@ -64,7 +64,7 @@ function playRound() {
   let playerSelection = playerPlay();
   let computerSelection = computerPlay();
   let result;
-
+  // TODO: Consider if result statement was a function itself instead of repeated.
   if ( playerSelection === computerSelection ) {
     result = 'Draw.';
   } else if ( playerSelection === rock && computerSelection === scissors ) {
@@ -85,6 +85,7 @@ function playRound() {
 
 // Game setup to play best of 5 by ending at first score of 3.
 function game() {
+  // TODO: Consider setting win condition as a separate variable or function.
   while ( playerScore !== 3 && computerScore !== 3 ) {
     console.log(playRound());
   }
