@@ -70,7 +70,7 @@ function computerPlay() {
 let playerScore = 0;
 let computerScore = 0;
 
-// Play one round of the game. Increment
+// Play one round of the game. Increment the winner's score and return the result of the round.
 function playRound() {
     // Create variable for computer selection.
     let playerSelection = playerPlay();
@@ -96,10 +96,14 @@ function playRound() {
 
 // Game setup to play 5 rounds maximum.
 function game() {
+    // Play game until one score reaches 3 (for a maximum of 5 rounds).
     while ( playerScore !== 3 && computerScore !== 3 ) {
+        // Report results of the round to console.
         console.log(playRound());
     }
+    // Report results of the game to console.
     ( playerScore === 3 ) ? console.log(`Player wins! Player: ${playerScore}. Computer: ${computerScore}.`) : console.log(`Computer wins. ${playerScore}. Computer: ${computerScore}.`);
 }
 
+// Initiate game.
 game();
