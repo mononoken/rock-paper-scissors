@@ -33,13 +33,34 @@ function checkChoice(choice) {
 
 playerChoice = checkChoice(playerChoice);
 
+// Get a random number from the Math functions between 0 and 3.
+function getRandomNumber() {
+    randomNumber = Math.floor(Math.random() * 3);
+    return randomNumber;
+}
+
 // create function that picks computer choice randomly
 function computerPlay() {
-
+    let randomChoice;
+    randomNumber = getRandomNumber();
+    switch (randomNumber) {
+        case 0:
+            randomChoice = rock;
+            break;
+        case 1:
+            randomChoice = paper;
+            break;
+        case 2:
+            randomChoice = scissors;
+    }
+    return randomChoice;
 }
 
 // create variable for computer choice
 let computerChoice = computerPlay();
+
+console.log(`Player choice is ${playerChoice}.`)
+console.log(`Computer choice is ${computerChoice}.`)
 
 // display choice of player and choice of computer
 // display who won the round
