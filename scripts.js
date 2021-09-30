@@ -7,6 +7,7 @@ computer = 'Computer';
 
 let playerScore = 0;
 let computerScore = 0;
+let result;
 
 // Get random computer selection.
 function computerPlay() {
@@ -33,7 +34,6 @@ function computerPlay() {
 
 function playRound(playerSelection) {
   let computerSelection = computerPlay();
-  let result;
   // TODO: Consider if result statement was a function itself instead of repeated.
   if ( playerSelection === computerSelection ) {
     result = 'Draw.';
@@ -50,26 +50,47 @@ function playRound(playerSelection) {
     result = `${computer} wins round. ${computerSelection} beats ${playerSelection}.`;
     ++computerScore;
   }
-  resultPara.textContent = `${result}`;
-  playerScorePara.textContent = `${playerScore}`;
-  computerScorePara.textContent = `${computerScore}`;
+  refreshContent();
   return result;
 }
 
 // Game setup to declare winner when player or computer score equals 3.
 function playGame() {
   if ( playerScore == 3 ) {
-    console.log(`Player wins! Player: ${playerScore}. Computer: ${computerScore}.`)
+    result = `Player wins game!`
+    resultPara.textContent = `${result}`;
+    promptReset();
   }
   
   if ( computerScore == 3 ) {
-    console.log(`Computer wins. Player: ${playerScore}. Computer: ${computerScore}.`)
+    result = `Computer wins game.`
+    resultPara.textContent = `${result}`;
+    promptReset();
   }
 }
 
 function resetGame() {
+  result = '';
   playerScore = 0;
   computerScore = 0;
+  refreshContent();
+
+  resetDiv.removeChild(resetBtn);
+}
+
+function promptReset() {
+  resetBtn.textContent = 'Play again?';
+  resetDiv.appendChild(resetBtn);
+
+  resetBtn.addEventListener('click', () => {
+    resetGame();
+  });
+}
+
+function refreshContent() {
+  resultPara.textContent = `${result}`;
+  playerScorePara.textContent = `${playerScore}`;
+  computerScorePara.textContent = `${computerScore}`;  
 }
 
 const rockBtn = document.getElementById('rock-btn');
@@ -79,6 +100,9 @@ const scissorsBtn = document.getElementById('scissors-btn');
 const resultPara = document.getElementById('round-result');
 const playerScorePara = document.getElementById('player-score');
 const computerScorePara = document.getElementById('computer-score');
+
+const resetDiv = document.getElementById('reset-div');
+const resetBtn = document.createElement('button')
 
 rockBtn.addEventListener('click', () => {
   let playerSelection = rock;
