@@ -1,6 +1,7 @@
 const rock = 'Rock';
 const paper = 'Paper';
 const scissors = 'Scissors';
+const winCondition = 5;
 
 player = 'Player';
 computer = 'Computer';
@@ -13,7 +14,6 @@ let playerSelection;
 
 // Get random computer selection.
 function computerPlay() {
-  // Get random number: 0, 1, or 2.
   function getRandomTriNumber() {
     randomTriNumber = Math.floor(Math.random() * 3);
     return randomTriNumber;
@@ -36,7 +36,6 @@ function computerPlay() {
 
 function playRound(playerSelection) {
   let computerSelection = computerPlay();
-  // TODO: Consider if result statement was a function itself instead of repeated.
   if ( playerSelection === computerSelection ) {
     result = 'Draw.';
   } else if ( playerSelection === rock && computerSelection === scissors ) {
@@ -56,14 +55,14 @@ function playRound(playerSelection) {
   return result;
 }
 
-// Game setup to declare winner when player or computer score equals 3.
 function playGame() {
   playRound(playerSelection);
-  if ( playerScore == 3 ) {
+  
+  if ( playerScore == winCondition ) {
     result = `${player} wins game!`
     refreshContent();
     promptReset();
-  } else if ( computerScore == 3 ) {
+  } else if ( computerScore == winCondition ) {
     result = `${computer} wins game.`
     refreshContent();
     promptReset();
