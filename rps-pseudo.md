@@ -1,1 +1,0 @@
-Can refactor code by adding a winner variable and referencing it in various statements as well as for some conditional checks.
